@@ -26,9 +26,6 @@ import (
 	"time"
 )
 
-// APIKey is used for the OpenDNS http queries
-const APIKey = ""
-
 // APIBaseURL this is the common part of the url for all API requests
 const APIBaseURL = "https://api.opendns.com/v1/"
 
@@ -397,7 +394,7 @@ func doGetRequest(url string, bodyString string, cookieJar *cookiejar.Jar) strin
 
 // https://github.com/yepher/OpenDNS_Monitor/blob/master/Notes.md#get-networks
 func apiSignIn(username string, password string, cookieJar *cookiejar.Jar) TokenResponse {
-	bodyString := "api_key=" + APIKey + "&method=account_signin&username=" + username + "&password=" + password
+	bodyString := "method=account_signin&username=" + username + "&password=" + password
 	response := doGetRequest(APIBaseURL, bodyString, cookieJar)
 	tokenResponse := TokenResponse{}
 	json.Unmarshal([]byte(response), &tokenResponse)
@@ -407,7 +404,7 @@ func apiSignIn(username string, password string, cookieJar *cookiejar.Jar) Token
 // https://github.com/yepher/OpenDNS_Monitor/blob/master/Notes.md#get-networks
 func listNetworks(token string, cookieJar *cookiejar.Jar) NetworksResponse {
 	domainURL := "https://api.opendns.com/v1/"
-	bodyString := "api_key=" + APIKey + "&method=networks_get&token=" + "8B55C3C081047F6FBF8183C3C78FB848"
+	bodyString := "method=networks_get"
 	response := doGetRequest(domainURL, bodyString, cookieJar)
 	networkResponse := NetworksResponse{}
 	json.Unmarshal([]byte(response), &networkResponse)
