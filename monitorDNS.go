@@ -217,7 +217,6 @@ func main() {
 			fmt.Printf("\tDynamic: %s\n", isDynamic)
 			fmt.Printf("\tIP Address: %s\n\n", v.IPAddress)
 		}
-
 		return
 	}
 
@@ -280,7 +279,6 @@ func getFormToken(loginURL string, cookieJar *cookiejar.Jar) string {
 		Trace.Printf("Inner Cookies: %v\n", cookieJar)
 		return token
 	}
-
 	return ""
 }
 
@@ -320,7 +318,6 @@ func signIn(loginURL string, formToken string, username string, password string,
 		Error.Printf("Unexpected response code: %d\n", resp.StatusCode)
 		os.Exit(2)
 	}
-
 	return false
 }
 
@@ -349,7 +346,6 @@ func fetchTopDomains(url string, networkID string, date string, cookieJar *cooki
 		}
 
 	}
-
 	return buffer.String()
 }
 
@@ -396,7 +392,6 @@ func doGetRequest(url string, bodyString string, cookieJar *cookiejar.Jar) strin
 		Error.Printf("Unexpected response code: %d\n", resp.StatusCode)
 		os.Exit(2)
 	}
-
 	return ""
 }
 
@@ -476,7 +471,6 @@ func processCSV(in string, fieldListPtr *string) string {
 		}
 		lineCount++
 	}
-
 	return result.String()
 }
 
