@@ -27,7 +27,7 @@ import (
 )
 
 // APIKey is used for the OpenDNS http queries
-const APIKey = "F5DF5551AB0325FDBD6969F6920B33ED"
+const APIKey = ""
 
 // APIBaseURL this is the common part of the url for all API requests
 const APIBaseURL = "https://api.opendns.com/v1/"
